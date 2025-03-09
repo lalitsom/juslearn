@@ -1,11 +1,11 @@
-# CPU - First principle learning
+# CPU
 
 
 ## Assignments (Use any programming language)
-1. Write a program which make use of ~100% CPU.
-2. Write a program which make use of ~50% CPU.
-3. Write a program which make all cores go ~100%.
-3. Write a program which make all cores go ~50%.
+1. Write a program which make use of ~100% CPU (single core).
+2. Write a program which make use of ~50% CPU (single core).
+3. Write a program which make use of ~100% CPU (all cores).
+3. Write a program which make use of ~50% CPU (all cores).
 
 
 First assignment code : [assignment1.cpp](assignment1.cpp)
