@@ -1,0 +1,29 @@
+# CPU - First principle learning
+
+
+## Assignments (Use any programming language)
+1. Write a program which make use of ~100% CPU.
+2. Write a program which make use of ~50% CPU.
+3. Write a program which make all cores go ~100%.
+3. Write a program which make all cores go ~50%.
+
+
+First assignment code : [assignment1.cpp](assignment1.cpp)
+
+<!-- terminal block -->
+```bash
+~/projects/juslearn/CPU % gcc assignment1.cpp
+~/projects/juslearn/CPU % time ./a.out
+count of operations  10000000000
+./a.out  9.35s user 0.02s system 98% cpu 9.547 total
+
+
+
+
+
+# Learnings to target
+- what is CPU?
+- what is core? how many your system have?
+- what is the speed of single cpu on your machine? what is the way to measure it?
+- what does it mean, when your cpu is 10% utilized or 100% utilized?
+- what is IO bound and CPU bound?

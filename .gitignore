@@ -1,0 +1,5 @@
+# gitignore c compiled files
+*.out
+*.o
+*.exe
+*.obj
