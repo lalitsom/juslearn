@@ -26,4 +26,6 @@ count of operations  10000000000
 - what is core? how many your system have?
 - what is the speed of single cpu on your machine? what is the way to measure it?
 - what does it mean, when your cpu is 10% utilized or 100% utilized?
+- understand top command and time command output
+- what is the difference between user, system and real time?
 - what is IO bound and CPU bound?
