@@ -2,6 +2,8 @@
 
 Each folder is named after the topic it covers. Each folder contains a README.md file that explains the topic in detail.
 
+Only CPU folder has a README.md file that contains assignments and code snippets. Other folders will be updated soon.
+
 ## Topics
 - [CPU](CPU/README.md)
 - [Memory](Memory/README.md)
