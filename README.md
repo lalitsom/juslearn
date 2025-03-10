@@ -4,6 +4,10 @@ Each folder is named after the topic it covers. Each folder contains a README.md
 
 Only CPU folder contains readme and code snippets for now. Other folders will be updated soon.
 
+Each topic have basic assignments, recommended to be done in order as they are designed to build on top of each other.
+If you are interested in more advance topics, you can ping on slack or fill the suggestion form.
+
+
 ## Topics
 - [CPU](CPU/README.md)
 - [Memory](Memory/README.md)
