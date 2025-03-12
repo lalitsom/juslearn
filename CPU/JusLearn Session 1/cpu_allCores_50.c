@@ -1,22 +1,40 @@
-#include <time.h>
 #include <pthread.h>
-#include <unistd.h> 
+#include <mach/mach_time.h>
+#include <time.h>
+#include <stdint.h>
+#include <unistd.h>
 
+uint64_t get_time_ns() {
+    static mach_timebase_info_data_t timebase = {0};
+    if (timebase.denom == 0) {
+        mach_timebase_info(&timebase);
+    }
+    return mach_absolute_time() * timebase.numer / timebase.denom;
+}
 
 void* worker(void* arg){
-    struct timespec start, now, sleep_time;
+    uint64_t busy_time = 100000000ULL;  
+    uint64_t sleep_time = 100000000ULL; 
+    uint64_t start;
+    uint64_t now = get_time_ns();
 
     while (1) {
-        clock_gettime(CLOCK_MONOTONIC, &start);
+        start = get_time_ns();
+        uint64_t target_busy_end = start + busy_time;
+        uint64_t target_sleep_end = target_busy_end + sleep_time;
 
-        do {
-            clock_gettime(CLOCK_MONOTONIC, &now);
-        } while (((now.tv_sec - start.tv_sec) * 1000) + 
-                 ((now.tv_nsec - start.tv_nsec) / 1000000) < 100);
+        while (now < target_busy_end) {
+            now = get_time_ns();
+        }
 
-        sleep_time.tv_sec = 0;
-        sleep_time.tv_nsec = 100 * 1000000L;
-        nanosleep(&sleep_time, NULL);
+        now = get_time_ns();
+        if (now < target_sleep_end) {
+            uint64_t sleep_duration_ns = target_sleep_end - now;
+            struct timespec ts;
+            ts.tv_sec  = sleep_duration_ns / 1000000000ULL;
+            ts.tv_nsec = sleep_duration_ns % 1000000000ULL;
+            nanosleep(&ts, NULL);
+        }
     }
 }
 
